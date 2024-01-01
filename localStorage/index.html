@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details Form</title>
+</head>
+<body>
+  <h1>Booking Appointment App</h1>
+    <form id="user-detail" onsubmit="handleFormSubmit(event)">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone">
+        <br>
+        <button type="submit" id="sub">Submit</button>
+    </form>
+
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            var userName = document.getElementById('name').value;
+            var userEmail = document.getElementById('email').value;
+            var userPhone = document.getElementById('phone').value;
+
+            var userObj = {
+                username: userName,
+                useremail: userEmail,
+                userphone: userPhone
+            };
+
+            // Convert the object to a JSON string
+            var jsonData = JSON.stringify(userObj);
+
+            // Store the JSON string in localStorage
+            //localStorage.setItem('userDetail', jsonData);
+
+
+            localStorage.setItem('username', userObj.username);
+            localStorage.setItem('useremail', userObj.useremail);
+            localStorage.setItem('userphone', userObj.userphone);
+        }
+    </script>
+</body>
+</html>
